@@ -5,9 +5,6 @@ import React from 'react';
 // eslint-disable-next-line object-curly-spacing
 import {BrowserRouter, Link, Route, Routes} from 'react-router-dom';
 import './App.css';
-import Author from './Author';
-import Photos from './components/Photos';
-import Todos from './Todos';
 import User from './User';
 
 export default function App() {
@@ -31,26 +28,14 @@ export default function App() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <Link to="/todos" className="nav-item nav-link">
-                Add Todos
-              </Link>
-              <Link to="/authors" className="nav-item nav-link">
-                Authors
-              </Link>
               <Link to="/user" className="nav-item nav-link">
                 Users
-              </Link>
-              <Link to="/photos" className="nav-item nav-link">
-                Photos
               </Link>
             </div>
           </div>
         </nav>
         <Routes>
-          <Route path="/todos" element={<Todos />}></Route>
-          <Route path="/authors" element={<Author />}></Route>
           <Route path="/user" element={<User />}></Route>
-          <Route path="/photos" element={<Photos />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
