@@ -7,26 +7,9 @@ var logger = require('morgan');
 // const mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
-const todosmysqlRouter = require('./routes/todosmysql');
-const authormysqlRouter = require('./routes/authormysql');
 const usersmysqlRouter = require('./routes/usersmysql');
 
 var app = express();
-//We are defining a connection string to connect to the mongodb
-// let mongoConnUrl = 'mongodb://localhost/westsidenode';
-// //We are connecting the mongodb
-// mongoose.connect(mongoConnUrl, {useNewUrlParser: true});
-// //We are getting the connection pointer
-// let db = mongoose.connection;
-// //We are now adding error event and it will run if there is any error in connecting to mongodb
-// db.on('error', function (error) {
-//   console.log('unable to connect');
-//   console.log(error);
-// });
-// //We are adding open event and responding in the call back function if connection is successful
-// db.on('open', function () {
-//   console.log('we are connected to the mongodb server via mongoose');
-// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -39,9 +22,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-
-app.use('/todosmysql', todosmysqlRouter);
-app.use('/authormysql', authormysqlRouter);
 app.use('/usersmysql', usersmysqlRouter);
 
 // catch 404 and forward to error handler
